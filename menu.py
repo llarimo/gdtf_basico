@@ -1,6 +1,7 @@
 import os
 import unicodedata
-
+from imprimir_tarefas import listar_tarefas
+from concluir_tarefa import concluir_tarefa
 def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -54,14 +55,7 @@ def adicionar_tarefa():
     print("Tarefa adicionada com sucesso!")
 
 
-def listar_tarefas():
-    if not tarefas:
-        print("Nenhuma tarefa cadastrada.")
-        return
-    
-    print("\nTarefas:")
-    for i, (desc, pri, cat, status) in enumerate(tarefas, start=1):
-        print(f"{i}. {desc} - Prioridade: {pri} - Categoria: {cat} - Status: {status}")
+
 
 def atualizar_tarefa():
     listar_tarefas()
@@ -132,20 +126,7 @@ def gerenciar_categorias():
     else:
         print("Opção inválida.")
 
-def concluir_tarefa():
-    listar_tarefas()
-    if not tarefas:
-        return
 
-    indice = input("\nDigite o número da tarefa que deseja marcar como concluída: ")
-    if not indice.isdigit() or not (1 <= int(indice) <= len(tarefas)):
-        print("Número inválido. Operação cancelada.")
-        return
-
-    indice = int(indice) - 1
-    desc, pri, cat, _ = tarefas[indice]
-    tarefas[indice] = (desc, pri, cat, "Concluída")
-    print("Tarefa marcada como concluída!")
 
 def menu():
     while True:
