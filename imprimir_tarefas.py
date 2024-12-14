@@ -1,4 +1,5 @@
-from menu import tarefas
+tarefas = []
+categorias = set(["Trabalho", "Pessoal", "Estudos", "Saúde", "Lazer"])
 def listar_tarefas():
     if not tarefas:
         print("Nenhuma tarefa cadastrada.")

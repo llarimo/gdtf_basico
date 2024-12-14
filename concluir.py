@@ -1,5 +1,5 @@
-from imprimir_tarefas import listar_tarefas
-from menu import tarefas
+from imprimir_tarefas import listar_tarefas, tarefas
+
 def concluir_tarefa():
     listar_tarefas()
     if not tarefas:
